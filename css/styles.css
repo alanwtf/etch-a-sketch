@@ -1,0 +1,25 @@
+#container{
+    border: 1px solid black;
+    width: 502px;
+    height: 502px;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    grid-gap: 0;
+    
+}
+
+.grid-pixel{
+    /*flex: 1;*/
+    padding: 0;
+    margin: 0;
+    
+    /*border: 1px solid black;*/
+    /*width: 50px;*/
+}
+
+.buttons{
+    /*display: inline-block;*/
+    text-align: center;
+}
+
