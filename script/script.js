@@ -1,7 +1,20 @@
 const container = document.querySelector('#container');
 const selectGrid = document.querySelector('#gridselect');
 const clearButton = document.querySelector('#clearbtn');
+const whack = document.querySelector('#whackybtn');
+
+let isWhack = false;
 let gridSize = 16;
+
+whack.addEventListener('click', () =>{
+    if(isWhack){
+        isWhack = false;
+        whack.innerHTML = "Whacky";
+    } else {
+        isWhack = true;
+        whack.innerHTML = "Normal";
+    }
+});
 
 selectGrid.addEventListener('change', () => {
     gridSize = selectGrid.value;
@@ -25,7 +38,7 @@ function createCanvas(){
         let newDiv = document.createElement('div');
         newDiv.classList.add('grid-pixel');
         newDiv.addEventListener('mouseover', () => 
-            newDiv.style.backgroundColor = "black"
+            newDiv.style.backgroundColor = (isWhack) ? randomColor() : "black"
         );
         //newDiv.style.width = 500/gridSize+"px";
         container.appendChild(newDiv);
@@ -33,5 +46,9 @@ function createCanvas(){
 }
 
 function randomColor(){
-    return
+    return `rgba(${generateColor()}, ${generateColor()}, ${generateColor()}, 1)`;
+}
+
+function generateColor(){
+    return Math.random() * Math.floor(255);
 }
