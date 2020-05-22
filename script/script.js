@@ -18,7 +18,6 @@ whack.addEventListener('click', () =>{
 
 selectGrid.addEventListener('change', () => {
     gridSize = selectGrid.value;
-    
     createCanvas();
     container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr`;
     
